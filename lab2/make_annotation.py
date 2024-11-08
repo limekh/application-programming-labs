@@ -1,5 +1,5 @@
-import os
 import csv
+import os
 
 
 def make_annotation(filename: str, annotation: str) -> None:
