@@ -1,7 +1,7 @@
 from arg_parse import arg_parse
-from make_annotation import make_annotation
-from image_download import image_download
 from ImageIterator import ImageIterator
+from image_download import image_download
+from make_annotation import make_annotation
 
 
 def main():
