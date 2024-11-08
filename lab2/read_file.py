@@ -1,5 +1,5 @@
-import os
 import csv
+import os
 
 
 def read_file(annotation: str) -> list:
