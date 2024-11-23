@@ -3,17 +3,31 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def plot_histogram(image: np.ndarray) -> None:
+def create_histogram(image: np.ndarray) -> dict:
     """
-    make the histogram
+    create the histogram
     :param image: image like numpy massive
+    :return: dict with hists for colors
+    """
+
+    hist = {}
+    color = ('b', 'g', 'r')
+    for i, col in enumerate(color):
+        hist[col] = cv2.calcHist([image], [i], None, [256], [0, 256])
+
+    return hist
+
+
+def show_histogram(hist: dict) -> None:
+    """
+    display histogram
+    :param hist: dict with hists for colors
     :return:
     """
-    color = ('b', 'g', 'r')
+    
     plt.figure()
-    for i, col in enumerate(color):
-        hist = cv2.calcHist([image], [i], None, [256], [0, 256])
-        plt.plot(hist, color=col)
+    for col in hist.keys():
+        plt.plot(hist[col], color=col)
         plt.xlim([0, 256])
 
     plt.title('Histogram')
