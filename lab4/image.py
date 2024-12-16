@@ -5,8 +5,8 @@ import cv2
 def get_image_info(image_path: str) -> tuple:
     """
     Get info of each image in folder - height, width and count of channels
-    :param image_path:
-    :return:
+    :param image_path: Path to image
+    :return: A tuple for each image consisting of its height, width and number of channels.
     """
     img = cv2.imread(path_to_image)
 
