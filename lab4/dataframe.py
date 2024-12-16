@@ -32,10 +32,22 @@ def add_columns(df: pd.DataFrame, image_folder: str) -> pd.DataFrame:
     :param image_folder: path to the direction with images
     :return: dataframe with new columns
     """
-    height, width, channel_count = get_image_info(image_folder)
-    df['height'] = height
-    df['width'] = width
-    df['channel_count'] = channel_count
+
+    heights = []
+    widths = []
+    channels_list = []
+
+    for index, row in df.iterrows():
+        height, width, channels =  get_dementions(row['Absolute'])
+
+        heights.append(height)
+        widths.append(width)
+        channels_list.append(channels)
+        
+    df['height'] = heights
+    df['width'] = widths
+    df['channel_count'] = channels_list
+
     return df
 
 
