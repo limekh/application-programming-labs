@@ -12,7 +12,6 @@ class ImageIterator:
 
         self.image_paths = open(self.path_to_csv)
         self.csvreader = csv.reader(self.image_paths)
-        next(self.csvreader)
 
         return self
 
