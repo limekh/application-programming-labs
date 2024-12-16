@@ -1,3 +1,4 @@
+import os
 import sys
 
 from PyQt5.QtCore import QSize, Qt
@@ -66,6 +67,10 @@ class Window(QMainWindow):
         csv_path, _ = QFileDialog.getOpenFileName(self, "Select annotation CSV file", "", "CSV file (*.csv)")
         if csv_path:
             self.csv_path = csv_path
+            if os.path.getsize(self.path_to_csv) == 0:
+              QMessageBox.critical(self, "Error", "CSV file is empty.")
+              self.next_button.setEnabled(False)
+              return
             self.image_iterator = iter(ImageIterator(self.csv_path))
             self.show_next_image()
 
