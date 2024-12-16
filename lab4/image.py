@@ -1,5 +1,5 @@
-import cv2
 import os
+import cv2
 
 
 def get_image_info(image_path: str) -> tuple:
