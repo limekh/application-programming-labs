@@ -25,7 +25,7 @@ def filter_dataframe(df: pd.DataFrame, max_height: int, max_width: int) -> pd.Da
     return df[(df['height'] <= max_height) & (df['width'] <= max_width)]
 
 
-def add_columns(df: pd.DataFrame, image_folder: str) -> pd.DataFrame:
+def add_columns(df: pd.DataFrame) -> pd.DataFrame:
     """
     Add 3 new columns in dataframe
     :param df: source dataframe
